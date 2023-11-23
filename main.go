@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"html/template"
 	"net/http"
 )
 
@@ -18,16 +19,20 @@ func main() {
 
 // Home is the handler for the home page
 func Home(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "This is the home page")
+	renderTemplate(w, "home.page.tmpl")
+
 }
 
 // About is the handler for the about page
 func About(w http.ResponseWriter, r *http.Request) {
-	sum := addValues(2, 2)
-	_, _ = fmt.Fprintf(w, fmt.Sprintf("<h1>This is the about page and 2 + 2 is %d.</h1>", sum))
+	renderTemplate(w, "about.page.tmpl")
 }
 
-// addValues adds two ints x and y, and returns the sum
-func addValues(x, y int) int {
-	return x + y
+func renderTemplate(w http.ResponseWriter, tmpl string) {
+	parseTemplate, _ := template.ParseFiles("./templates/" + tmpl)
+	err := parseTemplate.Execute(w, nil)
+	if err != nil {
+		fmt.Println("error parsing template:", err)
+		return
+	}
 }
