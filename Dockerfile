@@ -7,7 +7,7 @@ FROM golang:1.21 as builder
 WORKDIR /
 COPY --from=root-certs /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY . .
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -mod=vendor -o ./kgv .
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -mod=vendor -o ./kgv /cmd/web/*.go
 
 FROM scratch as final
 COPY --from=root-certs /etc/passwd /etc/passwd
