@@ -15,3 +15,8 @@ func Home(w http.ResponseWriter, r *http.Request) {
 func About(w http.ResponseWriter, r *http.Request) {
 	render.RenderTemplate(w, "about.page.tmpl")
 }
+
+// Impressum is the handler for the impressum page
+func Impressum(w http.ResponseWriter, r *http.Request) {
+	render.RenderTemplate(w, "impressum.page.tmpl")
+}
