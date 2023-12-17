@@ -6,24 +6,32 @@ import (
 	"log"
 	"net/http"
 	"path/filepath"
+
+	"github.com/kunovon/go-kgv-adminstration/pkg/config"
 )
+
+var functions = template.FuncMap{}
+
+var app *config.AppConfig
+
+// NewTemplates set the config for the template package
+func NewTemplates(a *config.AppConfig) {
+	app = a
+}
 
 // RenderTemplate renders a template
 func RenderTemplate(w http.ResponseWriter, tmpl string) {
-	//create a template cache
-	tc, err := createTemplateCache()
-	if err != nil {
-		log.Fatal(err)
-	}
+	// get the template cache from the app config
+	tc := app.TemplateCache
 
 	// get requestet template fom cache
 	t, ok := tc[tmpl]
 	if !ok {
-		log.Fatal(err)
+		log.Fatal("Could not get the template fom cache!")
 	}
 
 	buf := new(bytes.Buffer)
-	err = t.Execute(buf, nil)
+	err := t.Execute(buf, nil)
 	if err != nil {
 		log.Println(err)
 	}
@@ -36,7 +44,7 @@ func RenderTemplate(w http.ResponseWriter, tmpl string) {
 
 }
 
-func createTemplateCache() (map[string]*template.Template, error) {
+func CreateTemplateCache() (map[string]*template.Template, error) {
 	myCache := map[string]*template.Template{}
 
 	//get all from the files named *.page.tmpl from ./templats
