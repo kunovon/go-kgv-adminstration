@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/kunovon/go-kgv-adminstration/pkg/config"
+	"github.com/kunovon/go-kgv-adminstration/pkg/models"
 	"github.com/kunovon/go-kgv-adminstration/pkg/render"
 )
 
@@ -29,15 +30,22 @@ func NewHandlers(r *Repository) {
 
 // Home is the handler for the home page
 func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(w, "home.page.tmpl")
+	render.RenderTemplate(w, "home.page.tmpl", &models.TemplateData{})
 }
 
 // About is the handler for the about page
 func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(w, "about.page.tmpl")
+	// perform some logic
+	stringMap := make(map[string]string)
+	stringMap["test"] = "Hallo, Markus"
+
+	// send data to the template
+	render.RenderTemplate(w, "about.page.tmpl", &models.TemplateData{
+		StringMap: stringMap,
+	})
 }
 
 // Impressum is the handler for the impressum page
 func (m *Repository) Impressum(w http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(w, "impressum.page.tmpl")
+	render.RenderTemplate(w, "impressum.page.tmpl", &models.TemplateData{})
 }
