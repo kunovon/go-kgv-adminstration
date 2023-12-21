@@ -14,7 +14,7 @@ const portNumber = ":8080"
 
 // main is the main function
 func main() {
-	var app *config.AppConfig
+	var app config.AppConfig
 
 	tc, err := render.CreateTemplateCache()
 	if err != nil {
@@ -24,19 +24,20 @@ func main() {
 	app.TemplateCache = tc
 	app.UseCache = false
 
-	repo := handlers.NewRepo(app)
+	//repo := handlers.NewRepo(&app)
+	repo := handlers.NewRepo(&app)
 	handlers.NewHandlers(repo)
 
-	render.NewTemplates(app)
+	render.NewTemplates(&app)
 
-	fmt.Println(fmt.Sprintf("Staring application on port %s", portNumber))
+	fmt.Printf("Staring application on port %s \n", portNumber)
 
-	webserver := &http.Server{
+	srv := &http.Server{
 		Addr:    portNumber,
-		Handler: routes(app),
+		Handler: routes(&app),
 	}
 
-	err = webserver.ListenAndServe()
+	err = srv.ListenAndServe()
 
 	log.Fatal(err)
 }
