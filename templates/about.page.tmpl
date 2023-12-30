@@ -5,6 +5,13 @@
         <div class="col">
             <h1>This is the about page</h1>
             <h1>This came from data: {{index .StringMap "test"}}
+            <br>
+            {{if ne (index .StringMap "remote_ip") ""}}
+                Your IP address is: {{index .StringMap "remote_ip"}}
+            {{else}}
+                I don´t know your address please go to "/" <a href="/">Home page</a> so I can see it.
+            {{end}}
+
         </div>
     </div>
 </div>
