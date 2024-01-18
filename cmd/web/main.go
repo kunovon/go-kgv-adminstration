@@ -27,7 +27,7 @@ func main() {
 	// anders als im Beispiel dort session = app.Session
 	app.Session = scs.New()
 	app.Session.Lifetime = 24 * time.Hour
-	app.Session.Cookie.Persist = true
+	app.Session.Cookie.Persist = false
 	app.Session.Cookie.SameSite = http.SameSiteLaxMode
 	app.Session.Cookie.Secure = app.InProduction
 
