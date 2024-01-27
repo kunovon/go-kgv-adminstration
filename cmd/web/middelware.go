@@ -10,7 +10,8 @@ import (
 func WriteToConsole(next http.Handler) http.Handler {
 
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		fmt.Println("Hit the page!!!")
+		//remoteIP := m.App.Session.GetString(r.Context(), "remote_ip")
+		fmt.Println("Hit the page!!!") //, remoteIP)
 		next.ServeHTTP(w, r)
 	})
 }

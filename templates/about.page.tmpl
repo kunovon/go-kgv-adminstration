@@ -6,6 +6,8 @@
             <h1>This is the about page</h1>
             <h1>This came from data: {{index .StringMap "test"}}
             <br>
+            <h1>...und der Ort ist: {{index .StringMap "ort"}}
+            <br>
             {{if ne (index .StringMap "remote_ip") ""}}
                 Your IP address is: {{index .StringMap "remote_ip"}}
             {{else}}
