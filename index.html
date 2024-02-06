@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <!-- <title>Bootstrap demo</title> -->
     <link rel="styles" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
@@ -54,28 +54,40 @@
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="static/images/laube_back.jpeg" alt="Laube Rückseite">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Die Laube von hinten</h5>
-              <p>Der Garten im Aufbau.</p>
-            </div>
+                <img src="static/images/laube_back.jpeg" class="col-lg-3 col-md-3 col-sm-12 mx-auto d-block"  alt="Laube Rückseite">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Die Laube von hinten</h5>
+                  <p>Der Garten im Aufbau.</p>
+                </div>
           </div>
           <div class="carousel-item">
-            <img src="static/images/laube_benni_side.jpeg" alt="Die Laube Sonnenseite">
+            <img src="static/images/laube_benni_side.jpeg" class="col-lg-6 col-md-6 col-sm-12 mx-auto d-block" alt="Die Laube Sonnenseite">
             <div class="carousel-caption d-none d-md-block">
               <h5>Die Laube von der Sonnenseite</h5>
               <p>Der Garten im Aufbau.</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="static/images/laube_gelbe_planzen.jpeg" alt="Die Laube mit geleben Blumen"><div class="carousel-caption d-none d-md-block">
+            <img src="static/images/laube_gelbe_planzen.jpeg" class="col-lg-3 col-md-3 col-sm-12 mx-auto d-block" alt="Die Laube mit geleben Blumen"><div 
+            class="carousel-caption d-none d-md-block">
               <h5>Die Laube mit geleben Blumen</h5>
               <p>Der Garten im Aufbau.</p>
             </div>
           </div>
+          
+          <div class="carousel-item">
+            <img src="static/images/laube_rohbau.jpeg" class="col-lg-5 col-md-5 col-sm-12 mx-auto d-block" alt="Die Laube im Rohbau"><div 
+            class="carousel-caption d-none d-md-block">
+              <h5>Die Laube im Rohbau</h5>
+              <p>Der Garten im Aufbau.</p>
+            </div>
+          </div>
+
+
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
