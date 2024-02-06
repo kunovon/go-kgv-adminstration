@@ -1,5 +1,5 @@
-.carousel-inner img {
-    /* max-width: 50%;  */
-    margin: 1 auto;
-  }
+body {
+  background-image: url("static/images/gruen_planzen_backround.jpg");
+  background-repeat: repeat;
+}
   
